@@ -10,6 +10,7 @@ const connect = require('koa-connect')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
+const articles = require('./routes/articles')
 
 // error handler
 onerror(app)
@@ -39,5 +40,6 @@ app.use(connect(cors()))
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+app.use(articles.routes(), articles.allowedMethods())
 
 module.exports = app
