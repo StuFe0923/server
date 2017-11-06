@@ -21,7 +21,6 @@ app.use(bodyparser({
 }))
 app.use(json())
 app.use(logger())
-app.use(connect(require('koa-static')(__dirname + '/public')))
 
 app.use(views(__dirname + '/views', {
   extension: 'pug'
@@ -41,5 +40,6 @@ app.use(cors())
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(articles.routes(), articles.allowedMethods())
+app.use(connect(require('koa-static')(__dirname + '/public')))
 
 module.exports = app
