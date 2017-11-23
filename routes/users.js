@@ -66,7 +66,7 @@ router.get('/del', async (ctx, next) => {
 
 })
 
-router.get('/add', async (ctx, next) => {
+router.post('/add', async (ctx, next) => {
   let username = ctx.query.username;
   let password = ctx.query.password;
   if (!username || !password) {
