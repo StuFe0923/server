@@ -1,3 +1,4 @@
+
 const router = require('koa-router')()
 const random_name = require('node-random-name');
 const Promise = require("bluebird");
@@ -67,8 +68,9 @@ router.get('/del', async (ctx, next) => {
 })
 
 router.post('/add', async (ctx, next) => {
-  let username = ctx.query.username;
-  let password = ctx.query.password;
+  let data = ctx.request.body;
+  let username = data.username;
+  let password = data.password;
   if (!username || !password) {
     return ctx.body = {
       code: -1,
