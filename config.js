@@ -1,6 +1,9 @@
-module.exports = {
-  home: __dirname,
+const path = require('path');
 
+module.exports = {
+
+  home: __dirname,
+  logPath: path.join(__dirname, '/logs/app'),
   db: {
     "development": {
       'host': '127.0.0.1',
