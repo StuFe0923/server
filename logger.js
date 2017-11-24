@@ -2,7 +2,7 @@ const log4js = require('log4js');
 const process = require('process');
 const config = require('./config');
 const isDebug = process.env.NODE_ENV === 'development';
-const logFile = config.logPath + isDebug ? '.debug.log' : '.log';
+const logFile = config.logPath + (isDebug ? '.debug.log' : '.log');
 
 log4js.configure({
   appenders: {
@@ -18,7 +18,7 @@ log4js.configure({
 
 var logger = log4js.getLogger(isDebug ? 'default' : 'app');
 
-logger.connect = async(ctx, next) => {
+logger.connect = async (ctx, next) => {
   const start = new Date();
   await next();
   const ms = new Date() - start;
