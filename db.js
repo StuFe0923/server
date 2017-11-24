@@ -16,10 +16,10 @@ var db = dbConfig.db
 var host
 
 if (isDebug) {
-  console.log('提醒:debug状态连接数据库:')
+  console.log('[DB DEBUG]');
   host = dbConfig.host
 } else {
-  console.log('警告:非debug状态连接数据库:')
+  console.log('[DB PROD]');
   host = dbConfig.host
 }
 
@@ -35,28 +35,28 @@ console.log(connectionString)
 
 db = mongoose.connection
 
-db.on('connecting', function () {
+db.on('connecting', function() {
   console.log('connecting to MongoDB...');
 });
 
-db.on('error', function (error) {
+db.on('error', function(error) {
   console.error('Error in MongoDb connection: ' + error);
   mongoose.disconnect();
 });
-db.on('connected', function () {
+db.on('connected', function() {
   console.log('MongoDB connected!');
 });
-db.once('open', function () {
+db.once('open', function() {
   console.log('MongoDB connection opened!');
 });
-db.on('reconnected', function () {
+db.on('reconnected', function() {
   console.log('MongoDB reconnected!');
 });
-db.on('disconnected', function () {
+db.on('disconnected', function() {
   console.log('MongoDB disconnected!');
   mongoose.connect(connectionString, options);
 });
-mongoose.connect(connectionString, options, function (err, res) {
+mongoose.connect(connectionString, options, function(err, res) {
   if (err) {
     console.log('Error connecting to: ', connectionString + '. ' + err)
     return process.exit(1)

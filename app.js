@@ -4,30 +4,31 @@ const views = require('koa-views')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
-const logger = require('koa-logger')
+const logger = require('./logger');
 const cors = require('koa2-cors')
 const connect = require('koa-connect')
+const error = require('./middleware/error')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
 const articles = require('./routes/articles')
 
 // error handler
-onerror(app)
+// onerror(app)
+app.use(error)
 
 // middlewares
 app.use(bodyparser({
   enableTypes: ['json', 'form', 'text']
 }))
 app.use(json())
-app.use(logger())
 
 app.use(views(__dirname + '/views', {
   extension: 'pug'
 }))
 
 // logger
-app.use(async (ctx, next) => {
+app.use(async(ctx, next) => {
   const start = new Date()
   await next()
   const ms = new Date() - start
@@ -40,6 +41,8 @@ app.use(cors())
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(articles.routes(), articles.allowedMethods())
+
+// static files
 app.use(connect(require('koa-static')(__dirname + '/public')))
 
 module.exports = app

@@ -1,0 +1,84 @@
+[2017-11-24 11:31:43.806] [ERROR] default - InternalServerError: 用户名不能为空
+    at Object.resError (/Users/admin/WebstormProjects/StuFe0923/server/utils.js:20:13)
+    at router.get (/Users/admin/WebstormProjects/StuFe0923/server/routes/users.js:47:18)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/lib/router.js:345:16
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/lib/router.js:350:31)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:42:32)
+    at next (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:43:18)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/lib/router.js:332:32)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:42:32)
+    at next (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:43:18)
+    at _callee$ (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa2-cors/dist/index.js:134:22)
+    at tryCatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/regenerator-runtime/runtime.js:65:40)
+    at Generator.invoke [as _invoke] (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/regenerator-runtime/runtime.js:299:22)
+[2017-11-24 11:38:17.879] [ERROR] default - InternalServerError: 用户名不能为空
+    at Object.resError (/Users/admin/WebstormProjects/StuFe0923/server/utils.js:20:13)
+    at router.get (/Users/admin/WebstormProjects/StuFe0923/server/routes/users.js:47:18)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/lib/router.js:345:16
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/lib/router.js:350:31)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:42:32)
+    at next (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:43:18)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/lib/router.js:332:32)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:42:32)
+    at next (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:43:18)
+    at _callee$ (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa2-cors/dist/index.js:134:22)
+    at tryCatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/regenerator-runtime/runtime.js:65:40)
+    at Generator.invoke [as _invoke] (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/regenerator-runtime/runtime.js:299:22)
+[2017-11-24 14:38:28.369] [ERROR] default - BadRequestError: 用户名不存在
+    at Object.resError (/Users/admin/WebstormProjects/StuFe0923/server/utils.js:24:13)
+    at router.get (/Users/admin/WebstormProjects/StuFe0923/server/routes/users.js:47:18)
+    at <anonymous>
+[2017-11-24 17:28:28.085] [ERROR] default - ForbiddenError: 用户名或密码错误
+    at Object.resError (/Users/admin/WebstormProjects/StuFe0923/server/utils.js:24:13)
+    at router.post (/Users/admin/WebstormProjects/StuFe0923/server/routes/users.js:26:18)
+    at <anonymous>
+[2017-11-24 17:31:16.041] [ERROR] default - BadRequestError: 用户名已经存在
+    at Object.resError (/Users/admin/WebstormProjects/StuFe0923/server/utils.js:24:13)
+    at router.post (/Users/admin/WebstormProjects/StuFe0923/server/routes/users.js:82:18)
+    at <anonymous>
+[2017-11-24 17:31:48.246] [ERROR] default - BadRequestError: 用户名已经存在
+    at Object.resError (/Users/admin/WebstormProjects/StuFe0923/server/utils.js:24:13)
+    at router.post (/Users/admin/WebstormProjects/StuFe0923/server/routes/users.js:82:18)
+    at <anonymous>
+[2017-11-24 17:44:51.380] [ERROR] default - BadRequestError: 用户名不合法，必须是6-10位字母数字或下划线组成
+    at Object.resError (/Users/admin/WebstormProjects/StuFe0923/server/utils.js:24:13)
+    at router.post (/Users/admin/WebstormProjects/StuFe0923/server/routes/users.js:79:18)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/lib/router.js:345:16
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/lib/router.js:350:31)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:42:32)
+    at next (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:43:18)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/lib/router.js:332:32)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:42:32)
+    at next (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:43:18)
+    at _callee$ (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa2-cors/dist/index.js:134:22)
+    at tryCatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/regenerator-runtime/runtime.js:65:40)
+    at Generator.invoke [as _invoke] (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/regenerator-runtime/runtime.js:299:22)
+[2017-11-24 17:45:01.087] [ERROR] default - BadRequestError: 用户名不合法，必须是6-10位字母数字或下划线组成
+    at Object.resError (/Users/admin/WebstormProjects/StuFe0923/server/utils.js:24:13)
+    at router.post (/Users/admin/WebstormProjects/StuFe0923/server/routes/users.js:79:18)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/lib/router.js:345:16
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/lib/router.js:350:31)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:42:32)
+    at next (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:43:18)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa-router/lib/router.js:332:32)
+    at dispatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:42:32)
+    at next (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa/node_modules/koa-compose/index.js:43:18)
+    at _callee$ (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/koa2-cors/dist/index.js:134:22)
+    at tryCatch (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/regenerator-runtime/runtime.js:65:40)
+    at Generator.invoke [as _invoke] (/Users/admin/WebstormProjects/StuFe0923/server/node_modules/regenerator-runtime/runtime.js:299:22)

@@ -1,15 +1,15 @@
 const router = require('koa-router')()
-const random_name = require('node-random-name');
 const random_chinese_name = require('chinese-random-name');
 const random_skill = require('chinese-random-skill');
 const Promise = require("bluebird");
+const utils = require('../utils')
 
 const db = require('../db')
 const ArticleModel = require('../model/article');
 
 router.prefix('/articles')
 
-router.get('/list', async (ctx, next) => {
+router.get('/list', async(ctx, next) => {
   let fields = '_id title up comment view author publish_time'
   let param = {};
   let query = ctx.query;
@@ -23,87 +23,58 @@ router.get('/list', async (ctx, next) => {
     limit: pageCount
   }
 
-
-  let ret;
   let count = await ArticleModel.count(param)
   let articles = await ArticleModel.find(param, fields, options).exec()
-  ret = {
-    code: 0,
-    msg: 'success',
-    data: articles,
-    pages: {
-      pageNumber: Math.ceil(count / pageCount),
-      pageCount: pageCount,
-      pageNow: pageNow,
-      count: count
-    }
-  }
+  let pages = {
+    pageNumber: Math.ceil(count / pageCount),
+    pageCount: pageCount,
+    pageNow: pageNow,
+    count: count
+  };
 
-  ctx.body = ret
+
+  utils.resSuccess(ctx, articles, { pages: pages });
 
 })
 
-router.get('/up', async (ctx, next) => {
+router.get('/up', async(ctx, next) => {
   let id = ctx.query.id;
 
   if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-    return ctx.body = {
-      code: -2,
-      msg: 'id不合法'
-    }
+    return utils.resError(400, 'ID_INVALID');
   }
 
   await ArticleModel.findByIdAndUpdate(id, { $inc: { up: 1 } }).exec()
   let c = await ArticleModel.findById(id).exec();
   if (c) {
-    ctx.body = {
-      code: 0,
-      data: c,
-      msg: 'success'
-    }
+    return utils.resSuccess(ctx, c);
   } else {
-    ctx.body = {
-      code: -3,
-      msg: `id为${id}的文章不存在`
-    }
+    return utils.resError(400, 'DATA_NOT_FOUND');
   }
 
 })
 
-router.get('/del', async (ctx, next) => {
+router.get('/del', async(ctx, next) => {
   let id = ctx.query.id;
 
   if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-    return ctx.body = {
-      code: -2,
-      msg: 'id不合法'
-    }
+    return utils.resError(400, 'ID_INVALID');
   }
 
   let c = await ArticleModel.findByIdAndRemove(id).exec()
   if (c) {
-    ctx.body = {
-      code: 0,
-      data: c,
-      msg: 'success'
-    }
+    return utils.resSuccess(ctx, c);
   } else {
-    ctx.body = {
-      code: -3,
-      msg: `id为${id}的文章不存在`
-    }
+    return utils.resError(400, 'DATA_NOT_FOUND');
   }
 
 })
 
-router.get('/add', async (ctx, next) => {
+router.get('/add', async(ctx, next) => {
   let title = ctx.query.title;
   let author = ctx.query.author;
   if (!title || !author) {
-    return ctx.body = {
-      code: -1,
-      msg: 'title和author不能为空'
-    }
+    return utils.resError(400, 'PARAMS_ERROR');
   }
   let article = new ArticleModel({
     title: title,
@@ -114,13 +85,10 @@ router.get('/add', async (ctx, next) => {
     publish_time: new Date()
   })
   await article.save()
-  ctx.body = {
-    code: 0,
-    msg: 'success'
-  }
+  return utils.resSuccess(ctx);
 })
 
-router.get('/add/random', async (ctx, next) => {
+router.get('/add/random', async(ctx, next) => {
   let count = ctx.query.count || 1;
   count = Math.min(count, 10);
   let items = [];
@@ -136,10 +104,7 @@ router.get('/add/random', async (ctx, next) => {
     items.push(article.save())
   }
   await Promise.all(items)
-  ctx.body = {
-    code: 0,
-    msg: 'success'
-  }
+  return utils.resSuccess(ctx);
 })
 
 module.exports = router
