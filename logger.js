@@ -1,13 +1,14 @@
 const log4js = require('log4js');
 const process = require('process');
-const logFile = 'server';
+const config = require('./config');
 const isDebug = process.env.NODE_ENV === 'development';
+const logFile = config.logPath + isDebug ? '.debug.log' : '.log';
 
 log4js.configure({
   appenders: {
     out: { type: 'stdout' },
-    debug: { type: 'file', filename: `${logFile}.debug.log` },
-    app: { type: 'file', filename: `${logFile}.log` }
+    debug: { type: 'file', filename: logFile },
+    app: { type: 'file', filename: logFile }
   },
   categories: {
     app: { appenders: ['app'], level: 'error' },
