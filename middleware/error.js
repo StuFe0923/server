@@ -1,7 +1,7 @@
 const isDebug = process.env.NODE_ENV === 'development';
 const logger = require('../logger')
 
-module.exports = async function(ctx, next) {
+module.exports = async function (ctx, next) {
   try {
     await next();
   } catch (err) {
@@ -11,7 +11,7 @@ module.exports = async function(ctx, next) {
     ctx.type = 'application/json';
 
     ctx.body = {
-      code: err.code,
+      code: err.code || -500,
       error: err.error,
       msg: err.message,
     };
