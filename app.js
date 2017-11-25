@@ -6,7 +6,7 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('./logger');
 const cors = require('koa2-cors')
-const connect = require('koa-connect')
+const convert = require('koa-convert')
 const error = require('./middleware/error')
 
 const index = require('./routes/index')
@@ -35,6 +35,8 @@ app.use(async(ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
+// static files
+app.use(convert(require('koa-static')(__dirname + '/public')))
 app.use(cors())
 
 // routes
@@ -42,7 +44,5 @@ app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(articles.routes(), articles.allowedMethods())
 
-// static files
-app.use(connect(require('koa-static')(__dirname + '/public')))
 
 module.exports = app
