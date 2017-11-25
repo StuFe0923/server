@@ -9,7 +9,7 @@ const ArticleModel = require('../model/article');
 
 router.prefix('/articles')
 
-router.get('/list', async(ctx, next) => {
+router.get('/list', async (ctx, next) => {
   let fields = '_id title up comment view author publish_time'
   let param = {};
   let query = ctx.query;
@@ -37,10 +37,10 @@ router.get('/list', async(ctx, next) => {
 
 })
 
-router.post('/up', async(ctx, next) => {
+router.post('/up', async (ctx, next) => {
   let id = ctx.request.body.id;
 
-  if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+  if (!/^[0-9a-fA-F]{24}$/.test(id)) {
     return utils.resError(400, 'ID_INVALID');
   }
 
@@ -54,10 +54,10 @@ router.post('/up', async(ctx, next) => {
 
 })
 
-router.post('/del', async(ctx, next) => {
+router.post('/del', async (ctx, next) => {
   let id = ctx.request.body.id;
 
-  if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+  if (!/^[0-9a-fA-F]{24}$/.test(id)) {
     return utils.resError(400, 'ID_INVALID');
   }
 
@@ -70,7 +70,7 @@ router.post('/del', async(ctx, next) => {
 
 })
 
-router.get('/add', async(ctx, next) => {
+router.get('/add', async (ctx, next) => {
   let title = ctx.query.title;
   let author = ctx.query.author;
   if (!title || !author) {
@@ -88,7 +88,7 @@ router.get('/add', async(ctx, next) => {
   return utils.resSuccess(ctx);
 })
 
-router.get('/add/random', async(ctx, next) => {
+router.get('/add/random', async (ctx, next) => {
   let count = ctx.query.count || 1;
   count = Math.min(count, 10);
   let items = [];
