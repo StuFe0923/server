@@ -37,8 +37,8 @@ router.get('/list', async(ctx, next) => {
 
 })
 
-router.get('/up', async(ctx, next) => {
-  let id = ctx.query.id;
+router.post('/up', async(ctx, next) => {
+  let id = ctx.request.body.id;
 
   if (!id.match(/^[0-9a-fA-F]{24}$/)) {
     return utils.resError(400, 'ID_INVALID');
@@ -54,8 +54,8 @@ router.get('/up', async(ctx, next) => {
 
 })
 
-router.get('/del', async(ctx, next) => {
-  let id = ctx.query.id;
+router.post('/del', async(ctx, next) => {
+  let id = ctx.request.body.id;
 
   if (!id.match(/^[0-9a-fA-F]{24}$/)) {
     return utils.resError(400, 'ID_INVALID');
