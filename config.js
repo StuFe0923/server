@@ -17,5 +17,8 @@ module.exports = {
       'db': 'nicefish',
       'is_debug': false
     }
+  },
+  hosts: {
+    'portfolio': 'http://220.249.243.51'
   }
 }

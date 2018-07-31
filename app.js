@@ -12,6 +12,7 @@ const error = require('./middleware/error')
 const index = require('./routes/index')
 const users = require('./routes/users')
 const articles = require('./routes/articles')
+const portfolio = require('./routes/portfolio')
 
 // error handler
 // onerror(app)
@@ -28,7 +29,7 @@ app.use(views(__dirname + '/views', {
 }))
 
 // logger
-app.use(async(ctx, next) => {
+app.use(async (ctx, next) => {
   const start = new Date()
   await next()
   const ms = new Date() - start
@@ -43,6 +44,7 @@ app.use(cors())
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(articles.routes(), articles.allowedMethods())
+app.use(portfolio.routes(), articles.allowedMethods())
 
 
 module.exports = app
